@@ -1,165 +1,153 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Untitled</title>
-  
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BuildEase Ichalkaranji</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real Estate - Ichalkaranji</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-      color: #333;
-    }
-    header {
-      background-color: #2e3a59;
-      padding: 20px;
-      color: #fff;
-      text-align: center;
-    }
-    nav {
-      background: #1f2a44;
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    nav a:hover {
-      background: #33476b;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    h2 {
-      color: #2e3a59;
-    }
-    footer {
-      background: #2e3a59;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-    }
-    .section-card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-      section {
-        padding: 20px 15px;
-      }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .filters {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filters select {
+      margin: 5px;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .property-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      max-width: 600px;
+    }
+
+    .property-card h3 {
+      margin: 0 0 10px;
+      color: #0077cc;
+    }
+
+    .property-card p {
+      margin: 5px 0;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>BuildEase Ichalkaranji</h1>
-    <p>Your one-stop real estate and construction partner</p>
-  </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#engineers">Engineers</a>
-    <a href="#architects">Architects</a>
-    <a href="#labour">Labour Data</a>
-    <a href="#calculator">Cost Calculator</a>
-    <a href="#material">Materials</a>
-    <a href="#projects">New Projects</a>
-    <a href="#rental">Rental</a>
-    <a href="#legal">Legal</a>
-    <a href="#tech">Latest Tech</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <h1>Real Estate Listings - Ichalkaranji</h1>
 
-  <section id="about" class="section-card">
-    <h2>About Us</h2>
-    <p>BuildEase Ichalkaranji is designed to help citizens with all their real estate and construction needs. From finding engineers, architects, and labor to understanding building permissions and costs—we’ve got you covered.</p>
-  </section>
+  <div class="filters">
+    <select id="locationFilter">
+      <option value="">All Locations</option>
+      <option value="Ichalkaranji">Ichalkaranji</option>
+      <option value="Kolhapur">Kolhapur</option>
+    </select>
 
-  <section id="engineers" class="section-card">
-    <h2>Engineers Profile</h2>
-    <p>Find experienced civil engineers from Ichalkaranji and nearby areas for your project.</p>
-  </section>
+    <select id="typeFilter">
+      <option value="">All Types</option>
+      <option value="Rent">Rent</option>
+      <option value="Sale">Sale</option>
+    </select>
 
-  <section id="architects" class="section-card">
-    <h2>Architects Profile</h2>
-    <p>Choose from a list of top architects to design your dream home or commercial building.</p>
-  </section>
+    <select id="priceFilter">
+      <option value="">All Prices</option>
+      <option value="0-10000">Below ?10,000</option>
+      <option value="10000-20000">?10,000 - ?20,000</option>
+      <option value="20000-50000">?20,000 - ?50,000</option>
+      <option value="50000-100000">Above ?50,000</option>
+    </select>
+  </div>
 
-  <section id="labour" class="section-card">
-    <h2>Construction Labour</h2>
-    <p>Get access to skilled labor and worker teams available in Ichalkaranji.</p>
-  </section>
+  <div id="propertyList"></div>
 
-  <section id="calculator" class="section-card">
-    <h2>Building Cost Calculator</h2>
-    <p>Estimate the cost of construction based on area, material, and labor costs.</p>
-  </section>
+  <script>
+    const properties = [
+      {
+        id: 1,
+        title: "2 BHK Flat in Ichalkaranji",
+        location: "Ichalkaranji",
+        price: 15000,
+        type: "Rent"
+      },
+      {
+        id: 2,
+        title: "3 BHK Row House in Kolhapur",
+        location: "Kolhapur",
+        price: 45000,
+        type: "Sale"
+      },
+      {
+        id: 3,
+        title: "1 BHK Apartment in Ichalkaranji",
+        location: "Ichalkaranji",
+        price: 8000,
+        type: "Rent"
+      }
+    ];
 
-  <section id="material" class="section-card">
-    <h2>Construction Materials</h2>
-    <p>Get contacts of suppliers for cement, bricks, steel, and other essential materials.</p>
-  </section>
+    function displayProperties(list) {
+      const container = document.getElementById("propertyList");
+      container.innerHTML = "";
+      list.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "property-card";
+        card.innerHTML = `
+          <h3>${p.title}</h3>
+          <p>Location: ${p.location}</p>
+          <p>Price: ?${p.price}</p>
+          <p>Type: ${p.type}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
 
-  <section id="projects" class="section-card">
-    <h2>New Projects</h2>
-    <p>Explore new flats, apartments, and plotted developments available for sale.</p>
-  </section>
+    function filterProperties() {
+      const location = document.getElementById("locationFilter").value;
+      const type = document.getElementById("typeFilter").value;
+      const priceRange = document.getElementById("priceFilter").value;
 
-  <section id="rental" class="section-card">
-    <h2>Rental Listings</h2>
-    <p>Find flats, homes, and plots available for rent in and around Ichalkaranji.</p>
-  </section>
+      let filtered = properties;
 
-  <section id="legal" class="section-card">
-    <h2>Legal Advisory</h2>
-    <p>Understand the process of getting building permissions, documents needed, and compliance rules.</p>
-  </section>
+      if (location) {
+        filtered = filtered.filter(p => p.location === location);
+      }
 
-  <section id="tech" class="section-card">
-    <h2>Latest Construction Technologies</h2>
-    <p>Learn about the newest trends, eco-friendly materials, and smart building techniques.</p>
-  </section>
+      if (type) {
+        filtered = filtered.filter(p => p.type === type);
+      }
 
-  <section id="contact" class="section-card">
-    <h2>Contact Us</h2>
-    <p>Email: info@buildeaseichalkaranji.com<br>Phone: +91-9876543210</p>
-  </section>
+      if (priceRange) {
+        const [min, max] = priceRange.split("-").map(Number);
+        filtered = filtered.filter(p => p.price >= min && p.price <= max);
+      }
 
-  <footer>
-    <p>&copy; 2025 BuildEase Ichalkaranji. All rights reserved.</p>
-  </footer>
-</body>
-</html>
-<!-- partial -->
-  
+      displayProperties(filtered);
+    }
+
+    document.getElementById("locationFilter").addEventListener("change", filterProperties);
+    document.getElementById("typeFilter").addEventListener("change", filterProperties);
+    document.getElementById("priceFilter").addEventListener("change", filterProperties);
+
+    // Show all on load
+    displayProperties(properties);
+  </script>
+
 </body>
 </html>

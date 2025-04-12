@@ -1,189 +1,165 @@
-!DOCTYPE html
-html lang=en
-head
-  meta charset=UTF-8 
-  meta name=viewport content=width=device-width, initial-scale=1.0
-  titleReal Estate - Ichalkaranjititle
-  style
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuildEase Ichalkaranji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
     body {
-      font-family Arial, sans-serif;
-      margin 0;
-      padding 0;
-      background-color #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+      color: #333;
     }
-
     header {
-      background-color #0077cc;
-      color #fff;
-      padding 20px;
-      text-align center;
+      background-color: #2e3a59;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
     }
-
     nav {
-      background-color #005fa3;
-      padding 10px;
-      text-align center;
+      background: #1f2a44;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
-
     nav a {
-      color #fff;
-      text-decoration none;
-      margin 0 15px;
-      font-weight bold;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
-
-    .filters {
-      text-align center;
-      margin 20px;
+    nav a:hover {
+      background: #33476b;
     }
-
-    .filters select {
-      margin 5px;
-      padding 8px;
-      border-radius 5px;
-      border 1px solid #ccc;
+    section {
+      padding: 40px 20px;
     }
-
-    .property-card {
-      background-color #fff;
-      border 1px solid #ddd;
-      padding 15px;
-      margin 10px auto;
-      border-radius 8px;
-      box-shadow 0 0 8px rgba(0,0,0,0.05);
-      max-width 600px;
+    h2 {
+      color: #2e3a59;
     }
-
-    .property-card h3 {
-      margin 0 0 10px;
-      color #0077cc;
-    }
-
-    .property-card p {
-      margin 5px 0;
-      color #555;
-    }
-
     footer {
-      background-color #0077cc;
-      color white;
-      text-align center;
-      padding 10px;
-      position fixed;
-      bottom 0;
-      width 100%;
+      background: #2e3a59;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
     }
-  style
-head
-body
-  header
-    h1Real Estate Portal - Ichalkaranjih1
-  header
-
-  nav
-    a href=#Homea
-    a href=#listingsListingsa
-    a href=#contactContacta
-  nav
-
-  section class=filters
-    h2Filter Propertiesh2
-    select id=locationFilter
-      option value=All Locationsoption
-      option value=IchalkaranjiIchalkaranjioption
-      option value=KolhapurKolhapuroption
-    select
-
-    select id=typeFilter
-      option value=All Typesoption
-      option value=RentRentoption
-      option value=SaleSaleoption
-    select
-
-    select id=priceFilter
-      option value=All Pricesoption
-      option value=0-10000Below ₹10,000option
-      option value=10000-20000₹10,000 - ₹20,000option
-      option value=20000-50000₹20,000 - ₹50,000option
-      option value=50000-100000Above ₹50,000option
-    select
-  section
-
-  section id=propertyListsection
-
-  footer
-    p&copy; 2025 Real Estate Portal - Ichalkaranjip
-  footer
-
-  script
-    const properties = [
-      {
-        id 1,
-        title 2 BHK Flat in Ichalkaranji,
-        location Ichalkaranji,
-        price 15000,
-        type Rent
-      },
-      {
-        id 2,
-        title 3 BHK Row House in Kolhapur,
-        location Kolhapur,
-        price 45000,
-        type Sale
-      },
-      {
-        id 3,
-        title 1 BHK Apartment in Ichalkaranji,
-        location Ichalkaranji,
-        price 8000,
-        type Rent
-      }
-    ];
-
-    function displayProperties(list) {
-      const container = document.getElementById(propertyList);
-      container.innerHTML = ;
-      list.forEach(p = {
-        const card = document.createElement(div);
-        card.className = property-card;
-        card.innerHTML = `
-          h3${p.title}h3
-          pLocation ${p.location}p
-          pPrice ₹${p.price}p
-          pType ${p.type}p
-        `;
-        container.appendChild(card);
-      });
+    .section-card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    function filterProperties() {
-      const location = document.getElementById(locationFilter).value;
-      const type = document.getElementById(typeFilter).value;
-      const priceRange = document.getElementById(priceFilter).value;
-
-      let filtered = properties;
-
-      if (location) {
-        filtered = filtered.filter(p = p.location === location);
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
       }
-
-      if (type) {
-        filtered = filtered.filter(p = p.type === type);
+      section {
+        padding: 20px 15px;
       }
-
-      if (priceRange) {
-        const [min, max] = priceRange.split(-).map(Number);
-        filtered = filtered.filter(p = p.price = min && p.price = max);
-      }
-
-      displayProperties(filtered);
     }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BuildEase Ichalkaranji</h1>
+    <p>Your one-stop real estate and construction partner</p>
+  </header>
 
-    document.getElementById(locationFilter).addEventListener(change, filterProperties);
-    document.getElementById(typeFilter).addEventListener(change, filterProperties);
-    document.getElementById(priceFilter).addEventListener(change, filterProperties);
+  <nav>
+    <a href="#about">About</a>
+    <a href="#engineers">Engineers</a>
+    <a href="#architects">Architects</a>
+    <a href="#labour">Labour Data</a>
+    <a href="#calculator">Cost Calculator</a>
+    <a href="#material">Materials</a>
+    <a href="#projects">New Projects</a>
+    <a href="#rental">Rental</a>
+    <a href="#legal">Legal</a>
+    <a href="#tech">Latest Tech</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    displayProperties(properties);
-  script
-body
-html
+  <section id="about" class="section-card">
+    <h2>About Us</h2>
+    <p>BuildEase Ichalkaranji is designed to help citizens with all their real estate and construction needs. From finding engineers, architects, and labor to understanding building permissions and costs—we’ve got you covered.</p>
+  </section>
+
+  <section id="engineers" class="section-card">
+    <h2>Engineers Profile</h2>
+    <p>Find experienced civil engineers from Ichalkaranji and nearby areas for your project.</p>
+  </section>
+
+  <section id="architects" class="section-card">
+    <h2>Architects Profile</h2>
+    <p>Choose from a list of top architects to design your dream home or commercial building.</p>
+  </section>
+
+  <section id="labour" class="section-card">
+    <h2>Construction Labour</h2>
+    <p>Get access to skilled labor and worker teams available in Ichalkaranji.</p>
+  </section>
+
+  <section id="calculator" class="section-card">
+    <h2>Building Cost Calculator</h2>
+    <p>Estimate the cost of construction based on area, material, and labor costs.</p>
+  </section>
+
+  <section id="material" class="section-card">
+    <h2>Construction Materials</h2>
+    <p>Get contacts of suppliers for cement, bricks, steel, and other essential materials.</p>
+  </section>
+
+  <section id="projects" class="section-card">
+    <h2>New Projects</h2>
+    <p>Explore new flats, apartments, and plotted developments available for sale.</p>
+  </section>
+
+  <section id="rental" class="section-card">
+    <h2>Rental Listings</h2>
+    <p>Find flats, homes, and plots available for rent in and around Ichalkaranji.</p>
+  </section>
+
+  <section id="legal" class="section-card">
+    <h2>Legal Advisory</h2>
+    <p>Understand the process of getting building permissions, documents needed, and compliance rules.</p>
+  </section>
+
+  <section id="tech" class="section-card">
+    <h2>Latest Construction Technologies</h2>
+    <p>Learn about the newest trends, eco-friendly materials, and smart building techniques.</p>
+  </section>
+
+  <section id="contact" class="section-card">
+    <h2>Contact Us</h2>
+    <p>Email: info@buildeaseichalkaranji.com<br>Phone: +91-9876543210</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 BuildEase Ichalkaranji. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

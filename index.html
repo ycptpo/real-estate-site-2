@@ -1,153 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Real Estate - Ichalkaranji</title>
-  <style>
+!DOCTYPE html
+html lang=en
+head
+  meta charset=UTF-8 
+  meta name=viewport content=width=device-width, initial-scale=1.0
+  titleReal Estate - Ichalkaranjititle
+  style
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f9f9f9;
+      font-family Arial, sans-serif;
+      margin 0;
+      padding 0;
+      background-color #f4f4f4;
     }
 
-    h1 {
-      text-align: center;
-      color: #333;
+    header {
+      background-color #0077cc;
+      color #fff;
+      padding 20px;
+      text-align center;
+    }
+
+    nav {
+      background-color #005fa3;
+      padding 10px;
+      text-align center;
+    }
+
+    nav a {
+      color #fff;
+      text-decoration none;
+      margin 0 15px;
+      font-weight bold;
     }
 
     .filters {
-      text-align: center;
-      margin-bottom: 20px;
+      text-align center;
+      margin 20px;
     }
 
     .filters select {
-      margin: 5px;
-      padding: 8px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      margin 5px;
+      padding 8px;
+      border-radius 5px;
+      border 1px solid #ccc;
     }
 
     .property-card {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin: 10px auto;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      max-width: 600px;
+      background-color #fff;
+      border 1px solid #ddd;
+      padding 15px;
+      margin 10px auto;
+      border-radius 8px;
+      box-shadow 0 0 8px rgba(0,0,0,0.05);
+      max-width 600px;
     }
 
     .property-card h3 {
-      margin: 0 0 10px;
-      color: #0077cc;
+      margin 0 0 10px;
+      color #0077cc;
     }
 
     .property-card p {
-      margin: 5px 0;
-      color: #555;
+      margin 5px 0;
+      color #555;
     }
-  </style>
-</head>
-<body>
 
-  <h1>Real Estate Listings - Ichalkaranji</h1>
+    footer {
+      background-color #0077cc;
+      color white;
+      text-align center;
+      padding 10px;
+      position fixed;
+      bottom 0;
+      width 100%;
+    }
+  style
+head
+body
+  header
+    h1Real Estate Portal - Ichalkaranjih1
+  header
 
-  <div class="filters">
-    <select id="locationFilter">
-      <option value="">All Locations</option>
-      <option value="Ichalkaranji">Ichalkaranji</option>
-      <option value="Kolhapur">Kolhapur</option>
-    </select>
+  nav
+    a href=#Homea
+    a href=#listingsListingsa
+    a href=#contactContacta
+  nav
 
-    <select id="typeFilter">
-      <option value="">All Types</option>
-      <option value="Rent">Rent</option>
-      <option value="Sale">Sale</option>
-    </select>
+  section class=filters
+    h2Filter Propertiesh2
+    select id=locationFilter
+      option value=All Locationsoption
+      option value=IchalkaranjiIchalkaranjioption
+      option value=KolhapurKolhapuroption
+    select
 
-    <select id="priceFilter">
-      <option value="">All Prices</option>
-      <option value="0-10000">Below ?10,000</option>
-      <option value="10000-20000">?10,000 - ?20,000</option>
-      <option value="20000-50000">?20,000 - ?50,000</option>
-      <option value="50000-100000">Above ?50,000</option>
-    </select>
-  </div>
+    select id=typeFilter
+      option value=All Typesoption
+      option value=RentRentoption
+      option value=SaleSaleoption
+    select
 
-  <div id="propertyList"></div>
+    select id=priceFilter
+      option value=All Pricesoption
+      option value=0-10000Below ₹10,000option
+      option value=10000-20000₹10,000 - ₹20,000option
+      option value=20000-50000₹20,000 - ₹50,000option
+      option value=50000-100000Above ₹50,000option
+    select
+  section
 
-  <script>
+  section id=propertyListsection
+
+  footer
+    p&copy; 2025 Real Estate Portal - Ichalkaranjip
+  footer
+
+  script
     const properties = [
       {
-        id: 1,
-        title: "2 BHK Flat in Ichalkaranji",
-        location: "Ichalkaranji",
-        price: 15000,
-        type: "Rent"
+        id 1,
+        title 2 BHK Flat in Ichalkaranji,
+        location Ichalkaranji,
+        price 15000,
+        type Rent
       },
       {
-        id: 2,
-        title: "3 BHK Row House in Kolhapur",
-        location: "Kolhapur",
-        price: 45000,
-        type: "Sale"
+        id 2,
+        title 3 BHK Row House in Kolhapur,
+        location Kolhapur,
+        price 45000,
+        type Sale
       },
       {
-        id: 3,
-        title: "1 BHK Apartment in Ichalkaranji",
-        location: "Ichalkaranji",
-        price: 8000,
-        type: "Rent"
+        id 3,
+        title 1 BHK Apartment in Ichalkaranji,
+        location Ichalkaranji,
+        price 8000,
+        type Rent
       }
     ];
 
     function displayProperties(list) {
-      const container = document.getElementById("propertyList");
-      container.innerHTML = "";
-      list.forEach(p => {
-        const card = document.createElement("div");
-        card.className = "property-card";
+      const container = document.getElementById(propertyList);
+      container.innerHTML = ;
+      list.forEach(p = {
+        const card = document.createElement(div);
+        card.className = property-card;
         card.innerHTML = `
-          <h3>${p.title}</h3>
-          <p>Location: ${p.location}</p>
-          <p>Price: ?${p.price}</p>
-          <p>Type: ${p.type}</p>
+          h3${p.title}h3
+          pLocation ${p.location}p
+          pPrice ₹${p.price}p
+          pType ${p.type}p
         `;
         container.appendChild(card);
       });
     }
 
     function filterProperties() {
-      const location = document.getElementById("locationFilter").value;
-      const type = document.getElementById("typeFilter").value;
-      const priceRange = document.getElementById("priceFilter").value;
+      const location = document.getElementById(locationFilter).value;
+      const type = document.getElementById(typeFilter).value;
+      const priceRange = document.getElementById(priceFilter).value;
 
       let filtered = properties;
 
       if (location) {
-        filtered = filtered.filter(p => p.location === location);
+        filtered = filtered.filter(p = p.location === location);
       }
 
       if (type) {
-        filtered = filtered.filter(p => p.type === type);
+        filtered = filtered.filter(p = p.type === type);
       }
 
       if (priceRange) {
-        const [min, max] = priceRange.split("-").map(Number);
-        filtered = filtered.filter(p => p.price >= min && p.price <= max);
+        const [min, max] = priceRange.split(-).map(Number);
+        filtered = filtered.filter(p = p.price = min && p.price = max);
       }
 
       displayProperties(filtered);
     }
 
-    document.getElementById("locationFilter").addEventListener("change", filterProperties);
-    document.getElementById("typeFilter").addEventListener("change", filterProperties);
-    document.getElementById("priceFilter").addEventListener("change", filterProperties);
+    document.getElementById(locationFilter).addEventListener(change, filterProperties);
+    document.getElementById(typeFilter).addEventListener(change, filterProperties);
+    document.getElementById(priceFilter).addEventListener(change, filterProperties);
 
-    // Show all on load
     displayProperties(properties);
-  </script>
-
-</body>
-</html>
+  script
+body
+html
